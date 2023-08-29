@@ -1,6 +1,27 @@
 //------------- Dashboard.js -------------//
 $(document).ready(function() {
 
+
+    //------------- Sparklines in header stats -------------//
+    $('#spark-leitos').sparkline([5, 8, 10, 8, 7, 12, 11, 6, 13, 8, 5, 8, 10, 11, 7, 12, 11, 6, 13, 8], {
+        type: 'bar',
+        width: '100%',
+        height: '20px',
+        barColor: '#dfe2e7',
+        zeroAxis: false,
+    });
+
+
+
+    //------------- Sparklines in header stats -------------//
+    $('#spark-centrais').sparkline([5, 8, 10, 8, 7, 12, 11, 6, 13, 8, 5, 8, 10, 11, 7, 12, 11, 6, 13, 8], {
+        type: 'bar',
+        width: '100%',
+        height: '20px',
+        barColor: '#dfe2e7',
+        zeroAxis: false,
+    });
+
 	//------------- Sparklines in header stats -------------//
 	$('#spark-visitors').sparkline([5,8,10,8,7,12,11,6,13,8,5,8,10,11,7,12,11,6,13,8], {
 		type: 'bar',
@@ -142,19 +163,19 @@ $(document).ready(function() {
 			}
 	    };   
 
-    	$.plot($("#line-chart-payments"), [ 
-    		{
-    			label: "PayPal", 
-    			data: d1,
-    			lines: {fillColor: chartColours.gray}	
-    		}, 
-    		{	
-    			label: "Credit Card", 
-    			data: d2,
-    			lines: {fillColor: chartColours.teal}
-    		} 
+    	//$.plot($("#line-chart-payments"), [ 
+    	//	{
+    	//		label: "Evolucao", 
+    	//		data: d1,
+    	//		lines: {fillColor: chartColours.gray}	
+    	//	}, 
+    	//	{	
+    	//		label: "Q.Critico", 
+    	//		data: d2,
+    	//		lines: {fillColor: chartColours.teal}
+    	//	} 
 
-    	], options);
+	    //], options);
 
 	});
 
@@ -201,100 +222,49 @@ $(document).ready(function() {
 	tuesday.set("weather-tuesday", "partly-cloudy-day");
 	tuesday.play();
 
-	//------------- Montly sales goal chart -------------//
-	var salesProgress = new ProgressBar.Circle('#sales-goal', {
-	    color: '#47a877',
-	    strokeWidth: 4,
-	    fill: '#f1fcf7',
-	    duration: 4000,
-	    easing: 'bounce'
-	});
-	salesProgress.animate(0.5);
+	////------------- Montly sales goal chart -------------//
+	//var salesProgress = new ProgressBar.Circle('#sales-goal', {
+	//    color: '#47a877',
+	//    strokeWidth: 4,
+	//    fill: '#f1fcf7',
+	//    duration: 4000,
+	//    easing: 'bounce'
+	//});
+	//salesProgress.animate(0.5);
 
 
-	//------------- Last sales locations -------------//
-	$('#world-map').vectorMap({
-	    map: 'world_mill_en',
-	    scaleColors: ['#f7f9fe', '#29b6d8'],
-	    normalizeFunction: 'polynomial',
-	    hoverOpacity: 0.7,
-	    hoverColor: false,
-		focusOn:{
-			x: 0.5,
-			y: 0.5,
-			scale: 1.0
-		},
-		zoomMin:0.85,
-	    markerStyle: {
-	      initial: {
-	        fill: '#df6a78',
-	        stroke: '#df6a78'
-	      }
-	    },
-	    backgroundColor: '#fff',
-	    regionStyle:{
-			initial: {
-				fill: '#dde1e7',
-				"fill-opacity": 1,
-				stroke: '#f7f9fe',
-				"stroke-width": 0,
-				"stroke-opacity": 0
-			},
-			hover: {
-				"fill-opacity": 0.8
-			},
-			selected: {
-				fill: 'yellow'
-			}
-		},
-	    markers: [
-	    	//http://www.latlong.net/
-			{latLng: [51.507351, -0.127758], name: 'London'},
-			{latLng: [41.385064, 2.173403], name: 'Barcelona'},
-			{latLng: [40.712784, -74.005941], name: 'New York'},
-			{latLng: [-22.911632, -43.188286], name: 'Rio De Janeiro'},
-			{latLng: [49.282729, -123.120738], name: 'Vancuver'},
-			{latLng: [35.689487, 139.691706], name: 'Tokio'},
-			{latLng: [55.755826, 37.617300], name: 'Moskva'},
-			{latLng: [43.214050, 27.914733], name: 'Varna'},
-			{latLng: [30.044420, 31.235712], name: 'Cairo'}			
-	    ]
-	});
+
+ //   //------------- Montly sales goal chart -------------//
+	//var salesProgress = new ProgressBar.Circle('#sales-goal2', {
+	//    color: '#47a877',
+	//    strokeWidth: 4,
+	//    fill: '#f1fcf7',
+	//    duration: 4000,
+	//    easing: 'bounce'
+	//});
+	//salesProgress.animate(0.5);
+
+
+
 
 	//------------- New user notifications -------------//
 	function capitalise(string) {
 	    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 	}
-	setTimeout(function(){ 
-		$.ajax({
-		  	url: 'http://api.randomuser.me/',
-		  	dataType: 'json',
-		  	success: function(data){
-		    	res = data.results[0].user;
-			    $.gritter.add({
-					title: capitalise(res.name.first) + ' ' + capitalise(res.name.last),
-					text: 'Is come online',
-					image: res.picture.thumbnail,
-					close_icon: 'l-arrows-remove s16'
-				});	
-		  	}
-		});		
-	}, 10000);
-
-    //------------- Test -------------//
-    
-    //$('#visitor_number').countTo();
-
-    $.getJSON( "ajax/test.json", function( data ) {
-        console.log(data.visitors);
-        var visitors = data.visitors;
-        $('#visitor_number').data('to', visitors);
-        $('#visitor_number').countTo();
-    });
-
-    //get plugin object 
-    var adminObj = $('body').data('dynamic');
-    //call hide right sidebar function
-    adminObj.hideRightSidebar();
+	//setTimeout(function(){ 
+	//	$.ajax({
+	//	  	url: 'http://api.randomuser.me/',
+	//	  	dataType: 'json',
+	//	  	success: function(data){
+	//	    	res = data.results[0].user;
+	//		    $.gritter.add({
+	//				title: capitalise(res.name.first) + ' ' + capitalise(res.name.last),
+	//				text: 'Is come online',
+	//				image: res.picture.thumbnail,
+	//				close_icon: 'l-arrows-remove s16'
+	//			});	
+	//	  	}
+	//	});		
+	//}, 10000);
 
 });

@@ -7,19 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="bundleconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="bundleconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\bundle\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bundleconfig.json" />
     <None Include="wwwroot\Scripts\jquery.unobtrusive-ajax.js" />
     <None Include="wwwroot\Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
