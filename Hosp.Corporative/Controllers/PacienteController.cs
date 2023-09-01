@@ -23,7 +23,12 @@ namespace Hosp.Corporative.Controllers
         [Route("detalhe-de-paciente/{id}")]
         public IActionResult DetalheDePaciente(string id)
         {
-            return View();
+            var paciente = ObterPacientes().FirstOrDefault(x => x.Nome.Equals(id));
+
+            if(paciente == null)
+                return NotFound();
+
+            return View(paciente);
         }
 
         //[Route("adicionar-paciente")]

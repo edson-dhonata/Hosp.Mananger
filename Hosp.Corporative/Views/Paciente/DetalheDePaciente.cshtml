@@ -1,0 +1,54 @@
+﻿@using Hosp.Corporative.Controllers;
+
+@model Paciente
+
+<h1>Gestão de Paciente</h1>
+<hr />
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="glyphicon glyphicon-user"></i>Detalhes do Paciente:</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>@Model.Id</li>
+                <li>@Model.Nome</li>
+                <li>@Model.Cpf</li>
+            </ul>
+        </div>
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="glyphicon glyphicon-earphone"></i>Telefones do Pacientes:</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Código do Telefone:</th>
+                        <th>Número:</th>
+                        <th>Tipo do Telfone:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var telefone in Model.Telefones)
+                    {
+                        <tr>
+                            <td>@telefone.Id</td>
+                            <td>@telefone.Numero</td>
+                            <td>@telefone.TipoDeTelefone</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-info" href="javascript:void()" title="Editar Paciente">
+            <i class="glyphicon glyphicon-pencil"></i> Editar Telefone
+        </a>
+        <a class="btn btn-warning" title="Lista de pacientes" asp-controller="Paciente" asp-action="Index">
+            <i class="glyphicon glyphicon-th-list"></i> Lista de Pacientes
+        </a>
+    </div>
+</div>
