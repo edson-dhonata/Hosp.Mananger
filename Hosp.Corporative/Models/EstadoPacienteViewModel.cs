@@ -1,10 +1,10 @@
 ﻿using HospManager.Domain.Entities;
+using HospManager.Domain.Entities.Base;
 
 namespace Hosp.Corporative.Models
 {
-    public class EstadoPacienteViewModel
+    public class EstadoPacienteViewModel : EntityBase
     {
-        public Guid Id { get; set; }
         public string? Descricao { get; set; }
         public virtual ICollection<Paciente>? Pacientes { get; set; }
     }
