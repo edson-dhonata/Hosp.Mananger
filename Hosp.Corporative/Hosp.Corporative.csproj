@@ -15,4 +15,8 @@
     <None Include="wwwroot\Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\HospManager.Domain\HospManager.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
