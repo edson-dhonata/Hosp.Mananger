@@ -14,5 +14,10 @@ namespace HospMananger.Data.Data.ORM
 
         public DbSet<Paciente> Paciente { get; set; }
         public DbSet<EstadoPaciente> EstadoPaciente { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder); 
+        }
     }
 }

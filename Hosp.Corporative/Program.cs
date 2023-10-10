@@ -1,7 +1,13 @@
+using HospMananger.Data.Data.ORM;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Chama conexão
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HSPConnection")));
 
 var app = builder.Build();
 
