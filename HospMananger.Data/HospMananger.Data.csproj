@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Mappings\" />
     <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
