@@ -1,46 +1,11 @@
-﻿@using Hosp.Corporative.Controllers;
+﻿@{
+    ViewData["title"] = "Lista de Paciente";
+}
 
-@model IEnumerable<Paciente>
+<partial name="PartialViews/_cabecalho" />
 
-<h1>Gestão de Pacientes</h1>
-<hr />
-<div class="row">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i>Lista de Pacientes:</h3>
-        </div>
-        <div class="panel-body">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Código do Paciente:</th>
-                        <th>Paciente:</th>
-                        <th>CPF do Paciente:</th>
-                        <th class="text-center">Ações:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var paciente in Model)
-                    {
-                        <tr>
-                            <td>@paciente.Id</td>
-                            <td>@paciente.Nome</td>
-                            <td>@paciente.Cpf</td>
-                            <td class="text-center">
-                                <a class="btn btn-warning" title="Detalhes do paciente" asp-controller="Paciente" asp-action="DetalheDePaciente" asp-route-id="@paciente.Nome">
-                                    <i class="glyphicon glyphicon-list-alt"></i> Detalhes Paciente
-                                </a>
-                                <a class="btn btn-info" href="javascript:void()" title="Editar paciente">
-                                    <i class="glyphicon glyphicon-plus"></i> Editar Paciente
-                                </a>
-                                <a class="btn btn-danger" href="javascript:void()" title="Excluir Paciente">
-                                    <i class="glyphicon glyphicon-trash"></i> Excluir Paciente
-                                </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+<div class="panel panel-success panel-controls">
+    <div class="panel panel-heading">
+        <h3>Lista de Pacientes</h3>
     </div>
 </div>
