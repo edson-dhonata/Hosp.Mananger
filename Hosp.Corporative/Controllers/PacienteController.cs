@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hosp.Corporative.Extensions.ViewComponents.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Hosp.Corporative.Controllers
 {

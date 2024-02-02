@@ -25,14 +25,41 @@ namespace Hosp.Corporative.Extensions.ViewComponents.EstadoPaciente
 
             var prct = progress.ToString("F1"); //Retorna decimal
 
+            var classContainer = "";
+            var iconeLg = "";
+
+            switch (estado)
+            {
+                case "Crítico":
+                    classContainer = "panel panel-info tile panelClose panelRefresh";
+                    iconeLg = "l-basic-geolocalize-05";
+                    break;
+                case "Grave":
+                    classContainer = "panel panel-danger tile panelClose panelRefresh";
+                    iconeLg = "l-basic-life-buoy";
+                    break;
+                case "Estável":
+                    classContainer = "panel panel-success tile panelClose panelRefresh";
+                    iconeLg = "l-ecommerce-cart-content";
+                    break;
+                case "Observação":
+                    classContainer = "panel panel-default tile panelClose panelRefresh";
+                    iconeLg = "l-banknote";
+                    break;
+                default:
+                    classContainer = "panel panel-success tile panelClose panelRefresh";
+                    iconeLg = "l-ecommerce-cart-content";
+                    break;
+            }
+
             ContadorEstadoPaciente model = new()
             {
                 Titulo = $"Pacientes {estado}",
                 Parcial = (int)totalEstado,
                 Percentual = prct,
                 Progress = progress,
-                ClassContainer = "panel panel-default tile panelClose panelRefresh",
-                IconeLg = "l-banknote",
+                ClassContainer = classContainer,
+                IconeLg = iconeLg,
                 IconeSm = "fa fa-arrow-circle-o-down s20 mr5 pull-left"
             };
 
