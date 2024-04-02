@@ -24,12 +24,12 @@ namespace Hosp.Corporative.Models
         [DisplayName(displayName: "Data de Nascimento")]
         [Required(ErrorMessage = "Campo {0} é requerido.")]
         [DataType(DataType.DateTime, ErrorMessage = "Data Inválida.")]
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
         [Display(Name = "Data de Internação")]
         [Required(ErrorMessage = "Campo {0} é requerido.")]
         [DataType(DataType.DateTime, ErrorMessage = "O campo {0} está inválido.")] //O primeiro parâmetro e a propriedade.
-        public DateTime DataInternacao { get; set; }
+        public DateTime? DataInternacao { get; set; }
 
         //[DisplayName(displayName: "Data Inclusão")]
         //public DateTime? DataInclusao { get; set; }
@@ -52,7 +52,7 @@ namespace Hosp.Corporative.Models
         [DisplayName(displayName: "CPF")]
         [Required(ErrorMessage = "Campo {0} é requerido.")]
         [StringLength(11, ErrorMessage = "Campo {0} tem de ter {1} caracteres", MinimumLength = 11)]
-        public bool CPF { get; set; }
+        public string? CPF { get; set; }
 
         [DisplayName(displayName: "Tipo de Paciente")]
         [Required(ErrorMessage = "O campo {0} é requerido.")]
